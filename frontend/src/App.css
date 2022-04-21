@@ -1,0 +1,41 @@
+* {
+	box-sizing: border-box;
+  
+	padding: 0;
+	margin: 0;
+}
+
+.css-fxbtpg {
+    background-color: white !important;
+    
+
+}
+.css-t5ouwv-MuiPaper-root {
+ 
+    border: solid 2px #e8e8e9;
+    border-radius: 5px;
+    box-shadow: none !important;
+    width: 400px !important;
+    
+    display: flex !important;
+    justify-content: space-around !important;
+}
+.css-1f2kw6w-MuiContainer-root {
+    padding: 0px 42px 58px 62px !important;
+    width:736px !important;
+    margin-top: 20px !important;
+   
+}
+
+.css-1slnj5u-MuiPaper-root {
+    width: 900px;
+    box-shadow: none !important;
+    border: solid 2px #e8e8e9 !important;
+    display: flex !important;
+    
+}
+
+
+
+   
+
