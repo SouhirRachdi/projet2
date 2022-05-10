@@ -118,15 +118,17 @@ const user = useSelector((state) => state.userReducer.currentUser);
           px: [1],
         }}
       >
+        
         <IconButton onClick={toggleDrawer}>
-          <p className="log">EDULEARN</p>
+        <p className="log">EDULEARN</p>
           <ChevronLeftIcon />
+        
         </IconButton>
       </Toolbar>
       <Divider />
       {user.role == "prof" ? (
         <List component="nav">
-          <Link to="/dashboard">
+          <Link   className="side-bar" to="/dashboard">
             <ListItemButton>
               <ListItemIcon>
                 <DashboardIcon />
@@ -134,7 +136,7 @@ const user = useSelector((state) => state.userReducer.currentUser);
               <ListItemText primary="Dashboard" />
             </ListItemButton>
           </Link>
-          <Link to="/cours">
+          <Link className="side-bar" to="/cours">
             <ListItemButton>
               <ListItemIcon>
                 <LibraryBooksIcon />
@@ -142,7 +144,7 @@ const user = useSelector((state) => state.userReducer.currentUser);
               <ListItemText primary=" Course" />
             </ListItemButton>
           </Link>
-          <Link to="/library">
+          <Link  className="side-bar" to="/library">
             <ListItemButton>
               <ListItemIcon>
                 <VideoLibraryIcon />
@@ -150,7 +152,7 @@ const user = useSelector((state) => state.userReducer.currentUser);
               <ListItemText primary=" Library" />
             </ListItemButton>
           </Link>
-          <Link to="/posts">
+          <Link className="side-bar" to="/posts">
             <ListItemButton>
               <ListItemIcon>
                 <DynamicFeedIcon />
@@ -158,7 +160,7 @@ const user = useSelector((state) => state.userReducer.currentUser);
               <ListItemText primary=" Posts" />
             </ListItemButton>
           </Link>
-          <Link to="/Calendar">
+          <Link className="side-bar" to="/Calendar">
             <ListItemButton>
               <ListItemIcon>
                 <CalendarMonthIcon />
@@ -166,7 +168,7 @@ const user = useSelector((state) => state.userReducer.currentUser);
               <ListItemText primary="Calendar" />
             </ListItemButton>
           </Link>
-          <Link to="/addCour">
+          <Link className="side-bar" to="/addCour">
             <ListItemButton>
               <ListItemIcon>
                 <AddCardIcon />
@@ -174,7 +176,7 @@ const user = useSelector((state) => state.userReducer.currentUser);
               <ListItemText primary="Add Course" />
             </ListItemButton>
           </Link>
-          <Link to="/addtolab">
+          <Link className="side-bar" to="/addtolab">
             <ListItemButton>
               <ListItemIcon>
                 <AddCardIcon />
@@ -182,7 +184,7 @@ const user = useSelector((state) => state.userReducer.currentUser);
               <ListItemText primary="Add Video" />
             </ListItemButton>
           </Link>
-          <Link to="/addPost">
+          <Link className="side-bar" to="/addPost">
             <ListItemButton>
               <ListItemIcon>
                 <AddCardIcon />
@@ -191,7 +193,7 @@ const user = useSelector((state) => state.userReducer.currentUser);
             </ListItemButton>
           </Link>
 
-          <Link to="/student">
+          <Link  className="side-bar" to="/student">
             <ListItemButton>
               <ListItemIcon>
                 <PeopleIcon />
@@ -211,12 +213,11 @@ const user = useSelector((state) => state.userReducer.currentUser);
             </ListItemIcon>
             <ListItemText primary="All course" />
           </ListItemButton>
-          <Divider sx={{ my: 1 }} />
-          {secondaryListItems}
+         
         </List>
       ) : (
         <List component="nav">
-          <Link to="/dashboard">
+          <Link className="side-bar" to="/dashboard">
             <ListItemButton>
               <ListItemIcon>
                 <DashboardIcon />
@@ -224,7 +225,7 @@ const user = useSelector((state) => state.userReducer.currentUser);
               <ListItemText primary="Dashboard" />
             </ListItemButton>
           </Link>
-          <Link to="/cours">
+          <Link className="side-bar" to="/cours">
             <ListItemButton>
               <ListItemIcon>
                 <LibraryBooksIcon />
@@ -232,7 +233,7 @@ const user = useSelector((state) => state.userReducer.currentUser);
               <ListItemText primary=" Course" />
             </ListItemButton>
           </Link>
-          <Link to="/library">
+          <Link className="side-bar" to="/library">
             <ListItemButton>
               <ListItemIcon>
                 <VideoLibraryIcon />
@@ -240,7 +241,7 @@ const user = useSelector((state) => state.userReducer.currentUser);
               <ListItemText primary=" Library" />
             </ListItemButton>
           </Link>
-          <Link to="/posts">
+          <Link className="side-bar" to="/posts">
             <ListItemButton>
               <ListItemIcon>
                 <DynamicFeedIcon />
@@ -248,7 +249,7 @@ const user = useSelector((state) => state.userReducer.currentUser);
               <ListItemText primary=" Posts" />
             </ListItemButton>
           </Link>
-          <Link to="/addPost">
+          <Link  className="side-bar" to="/addPost">
             <ListItemButton>
               <ListItemIcon>
                 <AddCardIcon />
@@ -256,7 +257,7 @@ const user = useSelector((state) => state.userReducer.currentUser);
               <ListItemText primary="Add Post" />
             </ListItemButton>
           </Link>
-          <Link to="/Calendar">
+          <Link  className="side-bar" to="/Calendar">
             <ListItemButton>
               <ListItemIcon>
                 <CalendarMonthIcon />
@@ -264,9 +265,23 @@ const user = useSelector((state) => state.userReducer.currentUser);
               <ListItemText primary="Calendar" />
             </ListItemButton>
           </Link>
+          <Link className="side-bar" to="/Performance">
+            <ListItemButton>
+              <ListItemIcon>
+                <VideoLibraryIcon />
+              </ListItemIcon>
+              <ListItemText primary=" Performance" />
+            </ListItemButton>
+          </Link>
+          <Link className="side-bar" to="/Leaderboard">
+            <ListItemButton>
+              <ListItemIcon>
+                <VideoLibraryIcon />
+              </ListItemIcon>
+              <ListItemText primary=" Leaderboard" />
+            </ListItemButton>
+          </Link>
 
-          <Divider sx={{ my: 1 }} />
-          {secondaryListItems}
         </List>
       )}
     </Drawer>
@@ -315,7 +330,7 @@ const user = useSelector((state) => state.userReducer.currentUser);
               </Paper>
             </Grid>
           </Grid>
-          <Copyright sx={{ pt: 4 }} />
+          
         </Container>
       </Box>
     </Box>

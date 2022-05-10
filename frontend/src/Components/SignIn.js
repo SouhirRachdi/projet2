@@ -20,6 +20,7 @@ import IconButton from '@mui/material/IconButton';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { signinUser } from '../Redux/Actions/Useraction';
+import '../App.css';
 
 function Copyright(props) {
   return (
@@ -80,11 +81,12 @@ export default function SignIn() {
         <CssBaseline />
         <Grid
           item
+          className="imgBack"
           xs={false}
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://i.pinimg.com/736x/38/92/da/3892da0361d91c5ec5e9405ecbff2e43.jpg)',
+            
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
@@ -103,10 +105,19 @@ export default function SignIn() {
             }}
           >
            
-          
-            <Typography component="h1" variant="h5">
-              Sign in
+           <img
+            className="sign__image"
+            src="/imglogo1.png"
+            alt=" back"
+          />
+
+
+
+            
+               <Typography component="h3" >
+               Please sign in to start learning
             </Typography>
+            
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <TextField
                 margin="normal"

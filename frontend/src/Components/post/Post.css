@@ -18,6 +18,30 @@
     z-index: 101 !important;
     box-shadow: 0 0 7px 0 rgb(0 0 0 / 6%) !important;
 }
+.barup{
+    display: flex !important;
+    padding: 5px 20px 5px 300px !important;
+    justify-content: flex-end !important;
+    
+  
+  }
+  .css-8u39c-MuiTypography-root {
+    display: flex !important;
+    align-items: center !important;
+     justify-content: flex-start !important;
+     font-size: 1rem !important;
+}
+.firstname{
+display: flex;
+align-items: center !important;
+}
+
+
+
+
+
+
+
 
 .css-hip9hq-MuiPaper-root-MuiAppBar-root {
     height: 73px !important;
@@ -56,7 +80,7 @@
     width: 270px !important;
     max-width: 270px !important;
     
-    background-image:linear-gradient(225deg,  #5E72EB 0%,#FDC094 100%);
+    background-color:#C2CBC5 !important;
     white-space: nowrap;
     color:white;
     overflow-x: hidden;
@@ -297,8 +321,8 @@ label {
 
 
 form {
-    border: 1px solid rgba(16, 46, 46, 1);
-    background-color: rgba(22, 118, 118, 0.377);
+
+    background-color: rgba(245, 247, 247, 0.438);
     border-radius: 5px;
     padding: 20px;
     margin-top: 40px;

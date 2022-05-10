@@ -131,168 +131,183 @@ export default function AddPost() {
 
   return (
     <ThemeProvider theme={mdTheme}>
-      <Box sx={{ display: 'flex' }}>
-        <CssBaseline />
+    <Box sx={{ display: 'flex' }}>
+      <CssBaseline />
+      
+      <Drawer variant="permanent" open={open}>
+      <Toolbar
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "flex-end",
+          px: [1],
+        }}
+      >
         
-        <Drawer variant="permanent" open={open}>
-        <Toolbar
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "flex-end",
-            px: [1],
-          }}
-        >
-          <IconButton onClick={toggleDrawer}>
-          <p className="log">EDULEARN</p>
-            <ChevronLeftIcon />
-          </IconButton>
-        </Toolbar>
-        <Divider />
-        {user.role == "prof" ? (
-          <List component="nav">
-            <Link to="/dashboard">
-              <ListItemButton>
-                <ListItemIcon>
-                  <DashboardIcon />
-                </ListItemIcon>
-                <ListItemText primary="Dashboard" />
-              </ListItemButton>
-            </Link>
-            <Link to="/cours">
-              <ListItemButton>
-                <ListItemIcon>
-                  <LibraryBooksIcon />
-                </ListItemIcon>
-                <ListItemText primary=" Course" />
-              </ListItemButton>
-            </Link>
-            <Link to="/library">
-              <ListItemButton>
-                <ListItemIcon>
-                  <VideoLibraryIcon />
-                </ListItemIcon>
-                <ListItemText primary=" Library" />
-              </ListItemButton>
-            </Link>
-            <Link to="/posts">
-              <ListItemButton>
-                <ListItemIcon>
-                  <DynamicFeedIcon />
-                </ListItemIcon>
-                <ListItemText primary=" Posts" />
-              </ListItemButton>
-            </Link>
-            <Link to="/Calendar">
-              <ListItemButton>
-                <ListItemIcon>
-                  <CalendarMonthIcon />
-                </ListItemIcon>
-                <ListItemText primary="Calendar" />
-              </ListItemButton>
-            </Link>
-            <Link to="/addCour">
-              <ListItemButton>
-                <ListItemIcon>
-                  <AddCardIcon />
-                </ListItemIcon>
-                <ListItemText primary="Add Course" />
-              </ListItemButton>
-            </Link>
-            <Link to="/addtolab">
-              <ListItemButton>
-                <ListItemIcon>
-                  <AddCardIcon />
-                </ListItemIcon>
-                <ListItemText primary="Add Video" />
-              </ListItemButton>
-            </Link>
-            <Link to="/addPost">
-              <ListItemButton>
-                <ListItemIcon>
-                  <AddCardIcon />
-                </ListItemIcon>
-                <ListItemText primary="Add Post" />
-              </ListItemButton>
-            </Link>
-
-            <Link to="/student">
-              <ListItemButton>
-                <ListItemIcon>
-                  <PeopleIcon />
-                </ListItemIcon>
-                <ListItemText primary="Students" />
-              </ListItemButton>
-            </Link>
+        <IconButton onClick={toggleDrawer}>
+        <p className="log">EDULEARN</p>
+          <ChevronLeftIcon />
+        
+        </IconButton>
+      </Toolbar>
+      <Divider />
+      {user.role == "prof" ? (
+        <List component="nav">
+          <Link   className="side-bar" to="/dashboard">
             <ListItemButton>
               <ListItemIcon>
-                <BarChartIcon />
+                <DashboardIcon />
               </ListItemIcon>
-              <ListItemText primary="Reports" />
+              <ListItemText primary="Dashboard" />
             </ListItemButton>
+          </Link>
+          <Link className="side-bar" to="/cours">
             <ListItemButton>
               <ListItemIcon>
-                <LayersIcon />
+                <LibraryBooksIcon />
               </ListItemIcon>
-              <ListItemText primary="All course" />
+              <ListItemText primary=" Course" />
             </ListItemButton>
-            <Divider sx={{ my: 1 }} />
-            {secondaryListItems}
-          </List>
-        ) : (
-          <List component="nav">
-            <Link to="/dashboard">
-              <ListItemButton>
-                <ListItemIcon>
-                  <DashboardIcon />
-                </ListItemIcon>
-                <ListItemText primary="Dashboard" />
-              </ListItemButton>
-            </Link>
-            <Link to="/cours">
-              <ListItemButton>
-                <ListItemIcon>
-                  <LibraryBooksIcon />
-                </ListItemIcon>
-                <ListItemText primary=" Course" />
-              </ListItemButton>
-            </Link>
-            <Link to="/library">
-              <ListItemButton>
-                <ListItemIcon>
-                  <VideoLibraryIcon />
-                </ListItemIcon>
-                <ListItemText primary=" Library" />
-              </ListItemButton>
-            </Link>
-            <Link to="/posts">
-              <ListItemButton>
-                <ListItemIcon>
-                  <DynamicFeedIcon />
-                </ListItemIcon>
-                <ListItemText primary=" Posts" />
-              </ListItemButton>
-            </Link>
-            <Link to="/addPost">
-              <ListItemButton>
-                <ListItemIcon>
-                  <AddCardIcon />
-                </ListItemIcon>
-                <ListItemText primary="Add Post" />
-              </ListItemButton>
-            </Link>
-            <Link to="/Calendar">
-              <ListItemButton>
-                <ListItemIcon>
-                  <CalendarMonthIcon />
-                </ListItemIcon>
-                <ListItemText primary="Calendar" />
-              </ListItemButton>
-            </Link>
+          </Link>
+          <Link  className="side-bar" to="/library">
+            <ListItemButton>
+              <ListItemIcon>
+                <VideoLibraryIcon />
+              </ListItemIcon>
+              <ListItemText primary=" Library" />
+            </ListItemButton>
+          </Link>
+          <Link className="side-bar" to="/posts">
+            <ListItemButton>
+              <ListItemIcon>
+                <DynamicFeedIcon />
+              </ListItemIcon>
+              <ListItemText primary=" Posts" />
+            </ListItemButton>
+          </Link>
+          <Link className="side-bar" to="/Calendar">
+            <ListItemButton>
+              <ListItemIcon>
+                <CalendarMonthIcon />
+              </ListItemIcon>
+              <ListItemText primary="Calendar" />
+            </ListItemButton>
+          </Link>
+          <Link className="side-bar" to="/addCour">
+            <ListItemButton>
+              <ListItemIcon>
+                <AddCardIcon />
+              </ListItemIcon>
+              <ListItemText primary="Add Course" />
+            </ListItemButton>
+          </Link>
+          <Link className="side-bar" to="/addtolab">
+            <ListItemButton>
+              <ListItemIcon>
+                <AddCardIcon />
+              </ListItemIcon>
+              <ListItemText primary="Add Video" />
+            </ListItemButton>
+          </Link>
+          <Link className="side-bar" to="/addPost">
+            <ListItemButton>
+              <ListItemIcon>
+                <AddCardIcon />
+              </ListItemIcon>
+              <ListItemText primary="Add Post" />
+            </ListItemButton>
+          </Link>
 
-            <Divider sx={{ my: 1 }} />
-            {secondaryListItems}
-          </List>
+          <Link  className="side-bar" to="/student">
+            <ListItemButton>
+              <ListItemIcon>
+                <PeopleIcon />
+              </ListItemIcon>
+              <ListItemText primary="Students" />
+            </ListItemButton>
+          </Link>
+          <ListItemButton>
+            <ListItemIcon>
+              <BarChartIcon />
+            </ListItemIcon>
+            <ListItemText primary="Reports" />
+          </ListItemButton>
+          <ListItemButton>
+            <ListItemIcon>
+              <LayersIcon />
+            </ListItemIcon>
+            <ListItemText primary="All course" />
+          </ListItemButton>
+         
+        </List>
+      ) : (
+        <List component="nav">
+          <Link className="side-bar" to="/dashboard">
+            <ListItemButton>
+              <ListItemIcon>
+                <DashboardIcon />
+              </ListItemIcon>
+              <ListItemText primary="Dashboard" />
+            </ListItemButton>
+          </Link>
+          <Link className="side-bar" to="/cours">
+            <ListItemButton>
+              <ListItemIcon>
+                <LibraryBooksIcon />
+              </ListItemIcon>
+              <ListItemText primary=" Course" />
+            </ListItemButton>
+          </Link>
+          <Link className="side-bar" to="/library">
+            <ListItemButton>
+              <ListItemIcon>
+                <VideoLibraryIcon />
+              </ListItemIcon>
+              <ListItemText primary=" Library" />
+            </ListItemButton>
+          </Link>
+          <Link className="side-bar" to="/posts">
+            <ListItemButton>
+              <ListItemIcon>
+                <DynamicFeedIcon />
+              </ListItemIcon>
+              <ListItemText primary=" Posts" />
+            </ListItemButton>
+          </Link>
+          <Link  className="side-bar" to="/addPost">
+            <ListItemButton>
+              <ListItemIcon>
+                <AddCardIcon />
+              </ListItemIcon>
+              <ListItemText primary="Add Post" />
+            </ListItemButton>
+          </Link>
+          <Link  className="side-bar" to="/Calendar">
+            <ListItemButton>
+              <ListItemIcon>
+                <CalendarMonthIcon />
+              </ListItemIcon>
+              <ListItemText primary="Calendar" />
+            </ListItemButton>
+          </Link>
+          <Link className="side-bar" to="/Performance">
+            <ListItemButton>
+              <ListItemIcon>
+                <VideoLibraryIcon />
+              </ListItemIcon>
+              <ListItemText primary=" Performance" />
+            </ListItemButton>
+          </Link>
+          <Link className="side-bar" to="/Leaderboard">
+            <ListItemButton>
+              <ListItemIcon>
+                <VideoLibraryIcon />
+              </ListItemIcon>
+              <ListItemText primary=" Leaderboard" />
+            </ListItemButton>
+          </Link>
+
+        </List>
         )}
       </Drawer>
         <Box 
@@ -378,7 +393,7 @@ export default function AddPost() {
                 </Paper>
               </Grid>
             </Grid>
-            <Copyright sx={{ pt: 4 }} />
+          
           </Container>
         </Box>
       </Box>

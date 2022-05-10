@@ -36,8 +36,9 @@ import './listItems.css'
 import { mainListItems, secondaryListItems } from './listItems';
 import Chart from './Chart';
 import Deposits from './Deposits';
-import Orders from '../StudentList';
+import ListSkills from '../ListSkills';
 import { useSelector } from 'react-redux';
+import Entro from "../../Components/Entro";
 
 function Copyright(props) {
   return (
@@ -115,7 +116,7 @@ function Dashboard() {
         <Divider />
         {user.role == "prof" ? (
           <List component="nav">
-            <Link to="/dashboard">
+            <Link   className="side-bar" to="/dashboard">
               <ListItemButton>
                 <ListItemIcon>
                   <DashboardIcon />
@@ -123,7 +124,7 @@ function Dashboard() {
                 <ListItemText primary="Dashboard" />
               </ListItemButton>
             </Link>
-            <Link to="/cours">
+            <Link className="side-bar" to="/cours">
               <ListItemButton>
                 <ListItemIcon>
                   <LibraryBooksIcon />
@@ -131,7 +132,7 @@ function Dashboard() {
                 <ListItemText primary=" Course" />
               </ListItemButton>
             </Link>
-            <Link to="/library">
+            <Link  className="side-bar" to="/library">
               <ListItemButton>
                 <ListItemIcon>
                   <VideoLibraryIcon />
@@ -139,7 +140,7 @@ function Dashboard() {
                 <ListItemText primary=" Library" />
               </ListItemButton>
             </Link>
-            <Link to="/posts">
+            <Link className="side-bar" to="/posts">
               <ListItemButton>
                 <ListItemIcon>
                   <DynamicFeedIcon />
@@ -147,7 +148,7 @@ function Dashboard() {
                 <ListItemText primary=" Posts" />
               </ListItemButton>
             </Link>
-            <Link to="/Calendar">
+            <Link className="side-bar" to="/Calendar">
               <ListItemButton>
                 <ListItemIcon>
                   <CalendarMonthIcon />
@@ -155,7 +156,7 @@ function Dashboard() {
                 <ListItemText primary="Calendar" />
               </ListItemButton>
             </Link>
-            <Link to="/addCour">
+            <Link className="side-bar" to="/addCour">
               <ListItemButton>
                 <ListItemIcon>
                   <AddCardIcon />
@@ -163,7 +164,7 @@ function Dashboard() {
                 <ListItemText primary="Add Course" />
               </ListItemButton>
             </Link>
-            <Link to="/addtolab">
+            <Link className="side-bar" to="/addtolab">
               <ListItemButton>
                 <ListItemIcon>
                   <AddCardIcon />
@@ -171,7 +172,7 @@ function Dashboard() {
                 <ListItemText primary="Add Video" />
               </ListItemButton>
             </Link>
-            <Link to="/addPost">
+            <Link className="side-bar" to="/addPost">
               <ListItemButton>
                 <ListItemIcon>
                   <AddCardIcon />
@@ -180,7 +181,7 @@ function Dashboard() {
               </ListItemButton>
             </Link>
 
-            <Link to="/student">
+            <Link  className="side-bar" to="/student">
               <ListItemButton>
                 <ListItemIcon>
                   <PeopleIcon />
@@ -200,12 +201,11 @@ function Dashboard() {
               </ListItemIcon>
               <ListItemText primary="All course" />
             </ListItemButton>
-            <Divider sx={{ my: 1 }} />
-            {secondaryListItems}
+           
           </List>
         ) : (
           <List component="nav">
-            <Link to="/dashboard">
+            <Link className="side-bar" to="/dashboard">
               <ListItemButton>
                 <ListItemIcon>
                   <DashboardIcon />
@@ -213,7 +213,7 @@ function Dashboard() {
                 <ListItemText primary="Dashboard" />
               </ListItemButton>
             </Link>
-            <Link to="/cours">
+            <Link className="side-bar" to="/cours">
               <ListItemButton>
                 <ListItemIcon>
                   <LibraryBooksIcon />
@@ -221,7 +221,7 @@ function Dashboard() {
                 <ListItemText primary=" Course" />
               </ListItemButton>
             </Link>
-            <Link to="/library">
+            <Link className="side-bar" to="/library">
               <ListItemButton>
                 <ListItemIcon>
                   <VideoLibraryIcon />
@@ -229,7 +229,7 @@ function Dashboard() {
                 <ListItemText primary=" Library" />
               </ListItemButton>
             </Link>
-            <Link to="/posts">
+            <Link className="side-bar" to="/posts">
               <ListItemButton>
                 <ListItemIcon>
                   <DynamicFeedIcon />
@@ -237,7 +237,7 @@ function Dashboard() {
                 <ListItemText primary=" Posts" />
               </ListItemButton>
             </Link>
-            <Link to="/addPost">
+            <Link  className="side-bar" to="/addPost">
               <ListItemButton>
                 <ListItemIcon>
                   <AddCardIcon />
@@ -245,7 +245,7 @@ function Dashboard() {
                 <ListItemText primary="Add Post" />
               </ListItemButton>
             </Link>
-            <Link to="/Calendar">
+            <Link  className="side-bar" to="/Calendar">
               <ListItemButton>
                 <ListItemIcon>
                   <CalendarMonthIcon />
@@ -253,13 +253,32 @@ function Dashboard() {
                 <ListItemText primary="Calendar" />
               </ListItemButton>
             </Link>
+            <Link className="side-bar" to="/Performance">
+              <ListItemButton>
+                <ListItemIcon>
+                  <VideoLibraryIcon />
+                </ListItemIcon>
+                <ListItemText primary=" Performance" />
+              </ListItemButton>
+            </Link>
+            <Link className="side-bar" to="/Leaderboard">
+              <ListItemButton>
+                <ListItemIcon>
+                  <VideoLibraryIcon />
+                </ListItemIcon>
+                <ListItemText primary=" Leaderboard" />
+              </ListItemButton>
+            </Link>
 
-            <Divider sx={{ my: 1 }} />
-            {secondaryListItems}
           </List>
         )}
+        
       </Drawer>
-        <Box 
+
+     
+
+     <Box 
+    className='home'
           component="main"
           sx={{
             backgroundColor: (theme) =>
@@ -272,7 +291,10 @@ function Dashboard() {
           }}
         >
           <Toolbar />
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+          <Entro/>
+        </Box>
+      </Box>
+       <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
               {/* Chart */}
               <Grid item xs={12} md={8} lg={9}>
@@ -284,6 +306,7 @@ function Dashboard() {
                     height: 240,
                   }}
                 >
+                 
                   <Chart />
                 </Paper>
               </Grid>
@@ -303,14 +326,12 @@ function Dashboard() {
               {/* Recent Orders */}
               <Grid item xs={12}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                  <Orders />
+                <ListSkills/>
                 </Paper>
               </Grid>
             </Grid>
-            <Copyright sx={{ pt: 4 }} />
+           
           </Container>
-        </Box>
-      </Box>
     </ThemeProvider>
   );
 }

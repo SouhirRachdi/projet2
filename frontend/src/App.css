@@ -5,35 +5,211 @@
 	margin: 0;
 }
 
-.css-fxbtpg {
-    background-color: white !important;
+html {
+ 
+    --image-gradient: linear-gradient(to bottom left,#2125298c, rgb(12 10 22 / 45% ));
+   
+  }
+  
+  ::-webkit-scrollbar {
+    width: 7px ;
     
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #f0efef;
+    border-radius: 12px;
+  }
+  .imgBack{
+    background-image: var(--image-gradient),url("imageP.jpg") !important;
+  }
+  .login__form__logo {
+    width: 200px;
+    height: 200px;
+}
+.css-fxbtpg {
+ background-color: #ddddda4b !important ;  
+ margin-left: 170px !important;   
 
+}
+.svgicon{
+ display: flex !important;
+ align-items: center !important;
+}
+
+.home{
+  background-image: url("slider.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
+  width: 100%;
+  
+  height: 100%;
+  opacity: 1;
+  visibility: inherit;
+  z-index: 20;
 }
 .css-t5ouwv-MuiPaper-root {
  
     border: solid 2px #e8e8e9;
     border-radius: 5px;
     box-shadow: none !important;
-    width: 400px !important;
-    
+     
     display: flex !important;
     justify-content: space-around !important;
 }
 .css-1f2kw6w-MuiContainer-root {
     padding: 0px 42px 58px 62px !important;
     width:736px !important;
-    margin-top: 20px !important;
+    margin-bottom: 0px !important;
+
    
 }
 
+
 .css-1slnj5u-MuiPaper-root {
-    width: 900px;
+    width:630px !important;
     box-shadow: none !important;
     border: solid 2px #e8e8e9 !important;
     display: flex !important;
     
 }
+/*--charts-section--*/ 
+.dashboard-welcome {
+  grid-column: 1 / span 2;
+  display: grid;
+  grid-template-columns: calc(74% - 20px) calc(26% - 20px);
+  gap: 40px;
+}
+
+  .dashboard-welcome__content__body__welcome {
+    font-size: 20px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding-bottom: 25px;
+}
+.dashboard-welcome__content__body__member {
+  padding-bottom: 10px !important;
+}
+.dashboard-welcome__content__body__progress {
+  color: #94B0B7;
+  font-weight: bold;
+}
+.primary-button__btn-primary {
+  background-color: #C2CBC5 !important;
+  
+  border-color: #C2CBC5 !important;
+  border-radius: 5px !important;
+  min-width: 120px !important;
+  padding-right: 20px !important;
+  padding-left: 20px !important;
+  height: 40px !important;
+  color: #fff !important;
+  
+  font-weight: 600 !important;
+  font-size: 15px;
+  font-size: .75rem;
+  border: solid 2px #C2CBC5 !important;
+}
+
+
+.dashboard-welcome__image {
+
+    align-self: center;
+    width: 100% !important;
+}
+.sign__image{
+  align-self: center !important;
+    width: 100% !important;
+    height:90px !important;
+    
+}
+.dashboard-skills-achievements__body__content__skill__name {
+  font-size: 14px !important;
+  font-size: .875rem;
+  color: #0f0f19 !important;
+}
+.css-19r6kue-MuiContainer-root{
+  display: flex !important;
+  margin: 0px !important;
+  width: 100% !important;
+    height: 100% !important;
+    flex-flow: row wrap !important;
+}
+.css-2uchni{
+  margin: 0 8px !important;
+  display: flex !important;
+}
+.css-2s90m6-MuiAvatar-root{
+  margin-right: 4px;
+  border: solid 1px #aaaeb3;
+  border-radius: 50%;
+  padding: 3px;
+}
+.css-jcn4dz-MuiBadge-badge{
+  background-color: #aaaeb3 !important;
+  color: #fff;
+}
+
+
+.x-flex-h-between-v-center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.global-footer {
+  height: 50px;
+  background-color: white;
+  padding: 4px 30px 0px 300px;
+  color: #979797;
+  font-size: 0.81rem;
+  font-weight: 300;
+}
+.x-flex-h-start-v-center {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.global-footer .middle-item {
+  padding: 0 10px;
+}
+.x-flex-h-start-v-center {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.global-footer a {
+
+  color: inherit;
+}
+small {
+  font-size: 80%;
+}
+/*--home page--*/
+.maincontainer{
+  position: relative;
+  width: 100%;
+    padding-right: 15px;
+    margin-left: 50px;
+  
+   
+    height:100vh;
+    
+   
+}
+
+.vc_column_container {
+  padding-left: 0;
+  padding-right: 0;
+  width: 180px ;
+ display: flex;
+justify-content: center !important;
+
+}
+
+
+
+
 
 
 

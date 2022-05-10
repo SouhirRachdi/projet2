@@ -30,6 +30,7 @@ import PostList from './Components/post/PostList';
 import CommentSection from './Components/post/CommentSection';
 import AddPost from './Components/post/AddPost';
 import { getPosts } from './Redux/Actions/postaction';
+import Footer from './Footer';
 
 
 
@@ -54,7 +55,7 @@ const HandleFiltre=(text)=>{
      <Routes>
      <Route path="/signup" element={<SignUp/>}/>
      <Route  path="/" element={<SignIn/>}/>
-     <Route  path="/dashboard" element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><Dashboard /></PrivateRoute>}/>
+     <Route  path="/dashboard" element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/> <Dashboard /> </PrivateRoute>}/>
      <Route  path="/calendar" element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><Calendar /></PrivateRoute>}/>
      <Route path="/profil" element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><Profil/></PrivateRoute>}/>
      <Route  path="/cours" element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><Cours search={search}/></PrivateRoute>}/>
@@ -73,6 +74,7 @@ const HandleFiltre=(text)=>{
      <Route path="/courDetails/:id"  element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><Cour /></PrivateRoute>}/>
      <Route path="/editCour/:id" element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><EditCour /></PrivateRoute>} />
      </Routes>
+     <Footer/>
     </div>
   );
 }
