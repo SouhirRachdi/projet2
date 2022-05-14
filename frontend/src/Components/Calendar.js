@@ -2,6 +2,9 @@ import * as React from 'react';
 import isWeekend from 'date-fns/isWeekend';
 import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import PersonIcon from '@mui/icons-material/Person';
+
+import ArticleIcon from '@mui/icons-material/Article';
 import {LocalizationProvider} from '@mui/lab';
 import {StaticDatePicker} from '@mui/lab';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
@@ -107,7 +110,7 @@ export default function Calendar() {
       >
         
         <IconButton onClick={toggleDrawer}>
-        <p className="log">EDULEARN</p>
+        <p className="log">EDU<strong className="mainname" style={{color:'#F8D90F'}}>L</strong>EARN</p>
           <ChevronLeftIcon />
         
         </IconButton>
@@ -255,17 +258,17 @@ export default function Calendar() {
           <Link className="side-bar" to="/Performance">
             <ListItemButton>
               <ListItemIcon>
-                <VideoLibraryIcon />
+                <ArticleIcon />
               </ListItemIcon>
               <ListItemText primary=" Performance" />
             </ListItemButton>
           </Link>
-          <Link className="side-bar" to="/Leaderboard">
+          <Link className="side-bar" to="/TeachersListboard">
             <ListItemButton>
               <ListItemIcon>
-                <VideoLibraryIcon />
+                <PersonIcon />
               </ListItemIcon>
-              <ListItemText primary=" Leaderboard" />
+              <ListItemText primary=" Teachersboard" />
             </ListItemButton>
           </Link>
 
@@ -292,7 +295,11 @@ export default function Calendar() {
               
               {/* Recent Orders */}
               <Grid item xs={12}>
-                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+                <Paper className='calendar' sx={{ p: 2, display: 'flex', flexDirection: 'column',width:700,ml:40, mt:8 , background: 'url(./imge4.png)' ,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize:'cover' ,
+                boxShadow: 'none',
+              }} >
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <StaticDatePicker
                   orientation="landscape"

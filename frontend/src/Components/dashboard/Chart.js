@@ -10,6 +10,7 @@ import {
 } from "recharts";
 import Title from "./Title";
 import '../../App.css';
+import { useSelector } from "react-redux";
 
 // Generate Sales Data
 function createData(time, amount) {
@@ -29,16 +30,17 @@ const data = [
 ];
 
 export default function Chart() {
+  const user = useSelector((state) => state.userReducer.currentUser);
   const theme = useTheme();
 
   return (
     <React.Fragment>
-     
+     {user.role == "student" ? (
         <div className="dashboard-welcome x-card-layer">
           <div className="dashboard-welcome__content x-flex-column-h-any-v-between">
             <div className="dashboard-welcome__content__body">
               <div className="dashboard-welcome__content__body__welcome">
-                <span>Welcome Itaf</span>
+                <span>{user.firstName} <span>{user.lastName}</span></span>
               </div>
               <div className="dashboard-welcome__content__body__member">
                 <span>You are a member of </span>
@@ -71,7 +73,38 @@ export default function Chart() {
             src="/image1.png"
             alt="Welcome back"
           />
-        </div>
+        </div> ):(
+          <div className="dashboard-welcome x-card-layer">
+          <div className="dashboard-welcome__content x-flex-column-h-any-v-between">
+            <div className="dashboard-welcome__content__body">
+              <div className="dashboard-welcome__content__body__welcome">
+                <span>{user.firstName} <span>{user.lastName}</span></span>
+              </div>
+              <div className="dashboard-welcome__content__body__member">
+                <span>You are a Teacher of </span>
+                <span className="dashboard-welcome__content__body__progress">
+                Edulearn
+                </span>
+                <span> guild</span>
+              </div>
+             
+            </div>
+            <a href="/graduation-report">
+              <button
+                type="button"
+                className="ant-btn primary-button__btn-primary dashboard-welcome__content__button"
+              >
+                <span> your course</span>
+              </button>
+            </a>
+          </div>
+          <img
+            className="dashboard-welcome__image"
+            src="/image1.png"
+            alt="Welcome back"
+          />
+        </div> 
+        )}
      
     </React.Fragment>
   );

@@ -5,6 +5,9 @@ import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
+import PersonIcon from '@mui/icons-material/Person';
+
+import ArticleIcon from '@mui/icons-material/Article';
 import Link2 from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -120,7 +123,7 @@ const user = useSelector((state) => state.userReducer.currentUser);
       >
         
         <IconButton onClick={toggleDrawer}>
-        <p className="log">EDULEARN</p>
+        <p className="log">EDU<strong className="mainname" style={{color:'#F8D90F'}}>L</strong>EARN</p>
           <ChevronLeftIcon />
         
         </IconButton>
@@ -268,17 +271,17 @@ const user = useSelector((state) => state.userReducer.currentUser);
           <Link className="side-bar" to="/Performance">
             <ListItemButton>
               <ListItemIcon>
-                <VideoLibraryIcon />
+                < ArticleIcon />
               </ListItemIcon>
               <ListItemText primary=" Performance" />
             </ListItemButton>
           </Link>
-          <Link className="side-bar" to="/Leaderboard">
+          <Link className="side-bar" to="/TeachersListboard">
             <ListItemButton>
               <ListItemIcon>
-                <VideoLibraryIcon />
+                <PersonIcon />
               </ListItemIcon>
-              <ListItemText primary=" Leaderboard" />
+              <ListItemText primary=" Teachersboard" />
             </ListItemButton>
           </Link>
 
@@ -286,6 +289,7 @@ const user = useSelector((state) => state.userReducer.currentUser);
       )}
     </Drawer>
       <Box 
+       className="library"
         component="main"
         sx={{
           backgroundColor: (theme) =>
@@ -293,38 +297,31 @@ const user = useSelector((state) => state.userReducer.currentUser);
               ? theme.palette.grey[100]
               : theme.palette.grey[900],
           flexGrow: 1,
-          height: '100vh',
+         
           overflow: 'auto',
         }}
       >
         
-        <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+        <Container  sx={{ mt: 4, mb: 4 }}>
           <Grid container spacing={3}>
             {/* Chart */}
             
             
             {/* Recent Orders */}
-            <Grid item xs={12}>
-              <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+            <Grid item xs={12} >
+              <Paper sx={{ ml: 25}} >
               <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
-          sx={{
+      <Container component="main" >
+        <div className='videos' style={{
+          marginLeft:10,
             marginTop: 8,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          
-        <div>
-        <div >
+            display: 'flex',
+            flexWrap: 'wrap'}}
+            >
+        
        {labraries.map(el=><Library el={el} key={el._id} />)}
         </div>
-        
-        </div>
-        </Box>
+       
       </Container>
     </ThemeProvider>
               </Paper>

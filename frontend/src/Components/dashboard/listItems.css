@@ -1,7 +1,7 @@
 .css-jr57cz-MuiToolbar-root {
     padding-left: 8px;
     padding-right: 8px;
-    margin-bottom: 30px !important;
+    margin-bottom: 10px !important;
 }
 
 
@@ -9,4 +9,8 @@
     height: 60px !important;
     color: #fff !important;
     font-weight: 500 !important;
+}
+.css-1snvurg-MuiPickerStaticWrapper-root  {
+    background-color: transparent !important;
+    
 }

@@ -3,6 +3,9 @@ import Post from "./Post";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import {getPosts} from '../../Redux/Actions/postaction';
+import PersonIcon from '@mui/icons-material/Person';
+
+import ArticleIcon from '@mui/icons-material/Article';
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -129,7 +132,7 @@ export default function PostList() {
       >
         
         <IconButton onClick={toggleDrawer}>
-        <p className="log">EDULEARN</p>
+        <p className="log">EDU<strong className="mainname" style={{color:'#F8D90F'}}>L</strong>EARN</p>
           <ChevronLeftIcon />
         
         </IconButton>
@@ -277,17 +280,17 @@ export default function PostList() {
           <Link className="side-bar" to="/Performance">
             <ListItemButton>
               <ListItemIcon>
-                <VideoLibraryIcon />
+                <ArticleIcon />
               </ListItemIcon>
               <ListItemText primary=" Performance" />
             </ListItemButton>
           </Link>
-          <Link className="side-bar" to="/Leaderboard">
+          <Link className="side-bar" to="/TeachersListboard">
             <ListItemButton>
               <ListItemIcon>
-                <VideoLibraryIcon />
+                <PersonIcon />
               </ListItemIcon>
-              <ListItemText primary=" Leaderboard" />
+              <ListItemText primary=" Teachersboard" />
             </ListItemButton>
           </Link>
 
@@ -295,6 +298,7 @@ export default function PostList() {
       )}
     </Drawer>
       <Box 
+className="postss"
         component="main"
         sx={{
           backgroundColor: (theme) =>
@@ -302,39 +306,33 @@ export default function PostList() {
               ? theme.palette.grey[100]
               : theme.palette.grey[900],
           flexGrow: 1,
-          height: '100vh',
+         
           overflow: 'auto',
         }}
       >
         
-        <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+        <Container sx={{ mt: 4, mb: 4 }}>
           <Grid container spacing={3}>
             {/* Chart */}
             
             
             {/* Recent Orders */}
             <Grid item xs={12}>
-              <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+              <Paper className="paperback" >
               <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
-          sx={{
+      <Container component="main" >
+        <div style={{
+          marginLeft:10,
             marginTop: 8,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          
-        
-        <div >
+            display: 'flex',
+            flexWrap: 'wrap'}} >
+
      {posts&&posts.map((post) => (
             <Post post={post} key={post.id} />
           ))}
 
   </div>
-        </Box>
+        
       </Container>
     </ThemeProvider>
               </Paper>

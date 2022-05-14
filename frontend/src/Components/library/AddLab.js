@@ -4,6 +4,9 @@ import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import PersonIcon from '@mui/icons-material/Person';
+
+import ArticleIcon from '@mui/icons-material/Article';
 import Checkbox from "@mui/material/Checkbox";
 import Link2 from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
@@ -139,7 +142,7 @@ const AddLab = () => {
       >
         
         <IconButton onClick={toggleDrawer}>
-        <p className="log">EDULEARN</p>
+        <p className="log">EDU<strong className="mainname" style={{color:'#F8D90F'}}>L</strong>EARN</p>
           <ChevronLeftIcon />
         
         </IconButton>
@@ -324,7 +327,7 @@ const AddLab = () => {
               
               {/* Recent Orders */}
               <Grid item xs={12}>
-                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column',width:500,ml:45 }}>
                 <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="xs">
           <CssBaseline />

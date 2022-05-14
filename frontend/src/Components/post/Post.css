@@ -1,11 +1,11 @@
 .css-1ri6ub7-MuiPaper-root-MuiCard-root {
-    margin-top: 80px !important;
+    margin-top: 60px !important;
    max-width: 620px !important;
-    margin-left: 370px !important;
+  margin-left: 20px !important;
 }
 
 .css-1ri6ub7-MuiPaper-root-MuiCard-root{
-    max-width: 345px !important
+    max-width: 250px !important
   
 }
 
@@ -20,7 +20,7 @@
 }
 .barup{
     display: flex !important;
-    padding: 5px 20px 5px 300px !important;
+    padding: 5px 20px 5px 450px !important;
     justify-content: flex-end !important;
     
   
@@ -226,8 +226,8 @@ body {
     padding-top: 2px;
     padding-bottom: 2px;
     text-align: center;
-    background-color: #ecb21f;
-    border-color: #a88734 #9c7e31 #846a29;
+    background-color: #C2CBC5;
+    border-color: #C2CBC5;
     color: black;
     border-width: 1px;
     border-style: solid;
@@ -260,8 +260,8 @@ body {
 }
 
 .comment {
-    border: 1px solid rgba(16, 46, 46, 1);
-    background-color: rgba(22, 118, 118, 0.973);
+    border: 1px solid #C2CBC5;
+    background-color: #fffffff8;
     float: left;
     border-radius: 5px;
     padding-left: 40px;
@@ -285,7 +285,7 @@ body {
 
 h1,
 h4 {
-    color: black;
+    color: rgb(13, 1, 1);
     font-weight: bold
 }
 
@@ -353,11 +353,11 @@ form {
  
   .card {
    
-    border-radius: var(--border-radius-primary);
+   
    max-width: 1500px!important;
    width: 700px;
-   height: 300px;
-   box-shadow: 24px 24px 80px rgba(0, 0, 0, 0.1);
+ 
+   box-shadow: none !important;
     padding: 20px 20px 28px 20px;
     box-sizing: border-box;
     margin: 20px;
@@ -366,11 +366,11 @@ form {
   }
   @media (min-width: 576px) {
     .card {
-      flex-direction: row;
+     
       align-items: center;
       margin: 40px;
       
-      padding: 32px;
+      
     }
   }
   
@@ -393,7 +393,7 @@ form {
   
   @media (min-width: 576px) {
     .card__content {
-      width: 55%;
+    
       padding-left: 40px;
     }
   }
@@ -427,3 +427,27 @@ form {
     padding: 0 4px;
     margin-left: -4px;
   }
+  .postss{
+    background-image: linear-gradient(225deg,#ddddda44 25%,#C2CBC5 50%, #DDDDDA 75% ) !important;
+  }
+  .paperback{
+      background-color: transparent !important;
+      border: 1px solid rgba(255, 255, 255, 0.753) !important;
+      margin-left: 250px !important;
+      margin-top: 20px !important;
+      padding-bottom: 10px !important;
+      box-shadow: none !important;
+
+  }
+  .css-1vhaqj4-MuiButtonBase-root-MuiButton-root{
+      background-color: #C2CBC5 !important;
+  }
+  /* --commentsection--*/
+  .commentss{
+    background-color: #c2cbc538 !important;
+  }
+  @media (min-width: 0px){
+
+.css-nzinn5-MuiContainer-root { 
+     max-width: 800px !important;
+}}

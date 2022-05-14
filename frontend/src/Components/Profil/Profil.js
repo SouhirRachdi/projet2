@@ -256,6 +256,22 @@ function Profil() {
         <ListItemText primary="Calendar" />
       </ListItemButton>
       </Link>
+      <Link className="side-bar" to="/Performance">
+                <ListItemButton>
+                  <ListItemIcon>
+                    <VideoLibraryIcon />
+                  </ListItemIcon>
+                  <ListItemText primary=" Performance" />
+                </ListItemButton>
+              </Link>
+              <Link className="side-bar" to="/Studentboard">
+                <ListItemButton>
+                  <ListItemIcon>
+                    <VideoLibraryIcon />
+                  </ListItemIcon>
+                  <ListItemText primary=" Studentboard" />
+                </ListItemButton>
+              </Link>
      
       <Divider sx={{ my: 1 }} />
     {secondaryListItems}

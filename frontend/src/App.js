@@ -15,7 +15,7 @@ import Cours from './Components/Cours/Cours';
 import AddCours from './Components/Cours/AddCours';
 import AuthProf from './Components/AuthProf';
 import  { Pdf } from './Components/Pdf';
-import Orders from './Components/StudentList';
+import TeachersList from './Components/TeachersList';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import { getAllcourses, getOneCour } from './Redux/Actions/Couraction';
@@ -51,30 +51,25 @@ const HandleFiltre=(text)=>{
 
   return (
     <div className="App">
-
      <Routes>
-     <Route path="/signup" element={<SignUp/>}/>
-     <Route  path="/" element={<SignIn/>}/>
-     <Route  path="/dashboard" element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/> <Dashboard /> </PrivateRoute>}/>
-     <Route  path="/calendar" element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><Calendar /></PrivateRoute>}/>
-     <Route path="/profil" element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><Profil/></PrivateRoute>}/>
-     <Route  path="/cours" element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><Cours search={search}/></PrivateRoute>}/>
-     
-     <Route  path="/library" element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><LibraryList/></PrivateRoute>}/>
-     <Route path="/addtolab" element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><AddLab/></PrivateRoute>}/>
-     <Route  path="/posts" element={<div><NavBar HandleFiltre={HandleFiltre}/><PostList/> </div>}/>
-     <Route path="/postDetails/:id"  element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><CommentSection/></PrivateRoute>}/>
-     <Route path="/addPost" element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><AddPost/></PrivateRoute>}/>
-     <Route  path="/student" element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><Grid item xs={12}>
-     <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-       <Orders />
-     </Paper>
-   </Grid></PrivateRoute>}/>
-     <Route path="/addCour" element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><AddCours/></PrivateRoute>}/>
-     <Route path="/courDetails/:id"  element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><Cour /></PrivateRoute>}/>
-     <Route path="/editCour/:id" element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><EditCour /></PrivateRoute>} />
+     <Route  path="/signup" element={<SignUp/>}/>
+     <Route  path="/"       element={<SignIn/>}/>
+     <Route  path="/dashboard" element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/> <Dashboard /><Footer/> </PrivateRoute>}/>
+     <Route  path="/calendar"  element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><Calendar /><Footer/></PrivateRoute>}/>
+     <Route  path="/profil"    element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><Profil/><Footer/></PrivateRoute>}/>
+     <Route  path="/cours"     element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><Cours search={search}/><Footer/></PrivateRoute>}/>
+     <Route  path="/library"   element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><LibraryList/><Footer/></PrivateRoute>}/>
+     <Route  path="/addtolab"  element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><AddLab/><Footer/></PrivateRoute>}/>
+     <Route  path="/posts"     element={<div><NavBar HandleFiltre={HandleFiltre}/><PostList/> <Footer/></div>}/>
+     <Route  path="/postDetails/:id"  element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><CommentSection/><Footer/></PrivateRoute>}/>
+     <Route  path="/addPost"          element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><AddPost/><Footer/></PrivateRoute>}/>
+     <Route  path="/TeachersListboard"element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><TeachersList/><Footer/></PrivateRoute>}/>
+     <Route  path="/student"          element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><TeachersList/><Footer/></PrivateRoute>}/>
+     <Route  path="/addCour"          element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><AddCours/><Footer/></PrivateRoute>}/>
+     <Route  path="/courDetails/:id"  element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><Cour /><Footer/></PrivateRoute>}/>
+     <Route  path="/editCour/:id"     element={<PrivateRoute><NavBar HandleFiltre={HandleFiltre}/><EditCour /><Footer/></PrivateRoute>} />
      </Routes>
-     <Footer/>
+     
     </div>
   );
 }

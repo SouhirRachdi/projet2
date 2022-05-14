@@ -4,6 +4,9 @@ import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import PersonIcon from '@mui/icons-material/Person';
+
+import ArticleIcon from '@mui/icons-material/Article';
 import Checkbox from "@mui/material/Checkbox";
 import Link2 from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
@@ -101,7 +104,8 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 const mdTheme = createTheme();
-const Cours = ({search}) => {
+function Cours({search}) {
+  
   const Courses = useSelector((state) => state.courReducer.courses);
   
   // Create new plugin instance
@@ -135,7 +139,7 @@ const Cours = ({search}) => {
             }}
           >
             <IconButton onClick={toggleDrawer}>
-            <p className="log">EDULEARN</p>
+            <p className="log">EDU<strong className="mainname" style={{color:'#bb0496'}}>L</strong>EARN</p>
               <ChevronLeftIcon />
             </IconButton>
           </Toolbar>
@@ -280,6 +284,22 @@ const Cours = ({search}) => {
                   <ListItemText primary="Calendar" />
                 </ListItemButton>
               </Link>
+              <Link className="side-bar" to="/Performance">
+                <ListItemButton>
+                  <ListItemIcon>
+                    <ArticleIcon />
+                  </ListItemIcon>
+                  <ListItemText primary=" Performance" />
+                </ListItemButton>
+              </Link>
+              <Link className="side-bar" to="/Studentboard">
+                <ListItemButton>
+                  <ListItemIcon>
+                    <PersonIcon />
+                  </ListItemIcon>
+                  <ListItemText primary=" Studentboard" />
+                </ListItemButton>
+              </Link>
 
               <Divider sx={{ my: 1 }} />
               {secondaryListItems}
@@ -358,7 +378,7 @@ const Cours = ({search}) => {
                 </Paper>
               </Grid>
             </Grid>
-            <Copyright sx={{ pt: 4 }} />
+            
           </Container>
         </Box>
       </Box>
@@ -368,5 +388,4 @@ const Cours = ({search}) => {
 
 export default Cours;
 
-//<div>{Courses.map((el)=>(<div><Pdf key={el._id} cour={el}/></div>))}</div>
             

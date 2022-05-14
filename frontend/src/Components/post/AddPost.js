@@ -2,6 +2,9 @@ import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
+import PersonIcon from '@mui/icons-material/Person';
+
+import ArticleIcon from '@mui/icons-material/Article';
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
@@ -145,7 +148,7 @@ export default function AddPost() {
       >
         
         <IconButton onClick={toggleDrawer}>
-        <p className="log">EDULEARN</p>
+        <p className="log">EDU<strong className="mainname" style={{color:'#F8D90F'}}>L</strong>EARN</p>
           <ChevronLeftIcon />
         
         </IconButton>
@@ -293,17 +296,17 @@ export default function AddPost() {
           <Link className="side-bar" to="/Performance">
             <ListItemButton>
               <ListItemIcon>
-                <VideoLibraryIcon />
+                <ArticleIcon />
               </ListItemIcon>
               <ListItemText primary=" Performance" />
             </ListItemButton>
           </Link>
-          <Link className="side-bar" to="/Leaderboard">
+          <Link className="side-bar" to="/TeachersListboard">
             <ListItemButton>
               <ListItemIcon>
-                <VideoLibraryIcon />
+                <PersonIcon />
               </ListItemIcon>
-              <ListItemText primary=" Leaderboard" />
+              <ListItemText primary=" Teachersboard" />
             </ListItemButton>
           </Link>
 
@@ -330,7 +333,7 @@ export default function AddPost() {
               
               {/* Recent Orders */}
               <Grid item xs={12}>
-                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column',width:500,ml:45 }}>
                 <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="xs">
           <CssBaseline />

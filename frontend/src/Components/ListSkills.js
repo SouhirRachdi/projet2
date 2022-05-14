@@ -1,9 +1,15 @@
 import React from "react";
+
 import '../App.css';
+
+import { useSelector } from "react-redux";
+
 const ListSkills = () => {
+
+  const user = useSelector((state) => state.userReducer.currentUser);
   return (
-    <div>
-      <div className="x-card-layer dashboard-todo x-flex-column-h-any-v-start">
+    <React.Fragment>
+    {user.role == "student" ? ( <div className="x-card-layer dashboard-todo x-flex-column-h-any-v-start">
         <div className="dashboard-todo__title">
           <span>Last Achieved Skills</span>
         </div>
@@ -92,8 +98,12 @@ const ListSkills = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </div> 
+       ):( 
+        null
+        )}
+        </React.Fragment>
+    
   );
 };
 

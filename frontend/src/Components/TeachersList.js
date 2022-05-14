@@ -1,72 +1,80 @@
-import * as React from "react";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import PersonIcon from '@mui/icons-material/Person';
+import * as React from 'react';
 
-import ArticleIcon from '@mui/icons-material/Article';
-import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Link2 from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import isWeekend from "date-fns/isWeekend";
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import { LocalizationProvider } from "@mui/lab";
-import { StaticDatePicker } from "@mui/lab";
-import { styled } from "@mui/material/styles";
+import Table from '@mui/material/Table';
+import  {Link} from 'react-router-dom' 
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Title from './dashboard/Title';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Avatar from '@mui/material/Avatar';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteUser } from '../Redux/Actions/Useraction';
+
+import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 import MuiDrawer from "@mui/material/Drawer";
+import Box from "@mui/material/Box";
+
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
+
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import Paper from "@mui/material/Paper";
+
+
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import NotificationsIcon from "@mui/icons-material/Notifications";
+
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PeopleIcon from "@mui/icons-material/People";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import LayersIcon from "@mui/icons-material/Layers";
-import AssignmentIcon from "@mui/icons-material/Assignment";
+
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import AddCardIcon from "@mui/icons-material/AddCard";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 import DynamicFeedIcon from "@mui/icons-material/DynamicFeed";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import { mainListItems, secondaryListItems } from "../dashboard/listItems";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { addCour, getAllcourses } from "../../Redux/Actions/Couraction";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import "../dashboard/listItems.css";
+import PersonIcon from '@mui/icons-material/Person';
 
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link2 color="inherit" href="https://mui.com/">
-        Your Website
-      </Link2>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
+import ArticleIcon from '@mui/icons-material/Article';
+import '../App.css';
+
+
+
+
+
+// Generate Order Data
+function createData(id, createdOn,image,firstName,lastName, email, ban, role) {
+  return { id, createdOn,image, firstName,lastName, email,ban, role };
 }
 
+
+function preventDefault(event) {
+  event.preventDefault();
+}
+
+ function TeachersList() {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.userReducer.currentUser);
+  const Students = useSelector((state) => state.userReducer.users);
+  //console.log(Students)
+  //console.log(Student)
+  
+  
+  const [checked, setChecked] = React.useState();
+  const handleChange1 = (e) => {
+    setChecked(!checked);
+  };
+  
+  
 const drawerWidth = 240;
 
 const Drawer = styled(MuiDrawer, {
@@ -96,40 +104,17 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 const mdTheme = createTheme();
-const AddCours = () => {
-  const user = useSelector((state) => state.userReducer.currentUser);
+
   const [open, setOpen] = React.useState(true);
+  
   const toggleDrawer = () => {
     setOpen(!open);
   };
-  const [value, setValue] = React.useState(new Date());
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const theme = createTheme();
-  const [content, setContent] = React.useState("");
-  const [materialName, setMaterialName] = React.useState("");
-  const [title, setTitle] = React.useState("");
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData();
-    // eslint-disable-next-line no-console
-    // eslint-disable-next-line no-console
-    data.append("file", content);
-    data.append("materialName", materialName);
-    data.append("title", title);
-
-    console.log(data.get("file"));
-    dispatch(addCour(data, navigate));
-    dispatch(getAllcourses())
-  };
   return (
     <ThemeProvider theme={mdTheme}>
-      <Box sx={{ display: "flex" }}>
-        <CssBaseline />
-
-        <Drawer variant="permanent" open={open}>
+    <Box sx={{ display: "flex" }} className='backk'>
+      <CssBaseline />
+            <Drawer variant="permanent" open={open}>
           <Toolbar
             sx={{
               display: "flex",
@@ -146,7 +131,7 @@ const AddCours = () => {
           <Divider />
           {user.role == "prof" ? (
             <List component="nav">
-              <Link to="/dashboard">
+              <Link className="side-bar" to="/dashboard">
                 <ListItemButton>
                   <ListItemIcon>
                     <DashboardIcon />
@@ -154,7 +139,7 @@ const AddCours = () => {
                   <ListItemText primary="Dashboard" />
                 </ListItemButton>
               </Link>
-              <Link to="/cours">
+              <Link className="side-bar" to="/cours">
                 <ListItemButton>
                   <ListItemIcon>
                     <LibraryBooksIcon />
@@ -162,7 +147,7 @@ const AddCours = () => {
                   <ListItemText primary=" Course" />
                 </ListItemButton>
               </Link>
-              <Link to="/library">
+              <Link className="side-bar" to="/library">
                 <ListItemButton>
                   <ListItemIcon>
                     <VideoLibraryIcon />
@@ -170,7 +155,7 @@ const AddCours = () => {
                   <ListItemText primary=" Library" />
                 </ListItemButton>
               </Link>
-              <Link to="/posts">
+              <Link className="side-bar" to="/posts">
                 <ListItemButton>
                   <ListItemIcon>
                     <DynamicFeedIcon />
@@ -178,7 +163,7 @@ const AddCours = () => {
                   <ListItemText primary=" Posts" />
                 </ListItemButton>
               </Link>
-              <Link to="/Calendar">
+              <Link className="side-bar" to="/Calendar">
                 <ListItemButton>
                   <ListItemIcon>
                     <CalendarMonthIcon />
@@ -186,7 +171,7 @@ const AddCours = () => {
                   <ListItemText primary="Calendar" />
                 </ListItemButton>
               </Link>
-              <Link to="/addCour">
+              <Link className="side-bar" to="/addCour">
                 <ListItemButton>
                   <ListItemIcon>
                     <AddCardIcon />
@@ -194,7 +179,7 @@ const AddCours = () => {
                   <ListItemText primary="Add Course" />
                 </ListItemButton>
               </Link>
-              <Link to="/addtolab">
+              <Link className="side-bar" to="/addtolab">
                 <ListItemButton>
                   <ListItemIcon>
                     <AddCardIcon />
@@ -202,7 +187,7 @@ const AddCours = () => {
                   <ListItemText primary="Add Video" />
                 </ListItemButton>
               </Link>
-              <Link to="/addPost">
+              <Link className="side-bar" to="/addPost">
                 <ListItemButton>
                   <ListItemIcon>
                     <AddCardIcon />
@@ -211,7 +196,7 @@ const AddCours = () => {
                 </ListItemButton>
               </Link>
 
-              <Link to="/student">
+              <Link className="side-bar" to="/student">
                 <ListItemButton>
                   <ListItemIcon>
                     <PeopleIcon />
@@ -231,11 +216,10 @@ const AddCours = () => {
                 </ListItemIcon>
                 <ListItemText primary="All course" />
               </ListItemButton>
-              
             </List>
           ) : (
             <List component="nav">
-              <Link to="/dashboard">
+              <Link className="side-bar" to="/dashboard">
                 <ListItemButton>
                   <ListItemIcon>
                     <DashboardIcon />
@@ -243,7 +227,7 @@ const AddCours = () => {
                   <ListItemText primary="Dashboard" />
                 </ListItemButton>
               </Link>
-              <Link to="/cours">
+              <Link className="side-bar" to="/cours">
                 <ListItemButton>
                   <ListItemIcon>
                     <LibraryBooksIcon />
@@ -251,7 +235,7 @@ const AddCours = () => {
                   <ListItemText primary=" Course" />
                 </ListItemButton>
               </Link>
-              <Link to="/library">
+              <Link className="side-bar" to="/library">
                 <ListItemButton>
                   <ListItemIcon>
                     <VideoLibraryIcon />
@@ -259,7 +243,7 @@ const AddCours = () => {
                   <ListItemText primary=" Library" />
                 </ListItemButton>
               </Link>
-              <Link to="/posts">
+              <Link className="side-bar" to="/posts">
                 <ListItemButton>
                   <ListItemIcon>
                     <DynamicFeedIcon />
@@ -267,7 +251,7 @@ const AddCours = () => {
                   <ListItemText primary=" Posts" />
                 </ListItemButton>
               </Link>
-              <Link to="/addPost">
+              <Link className="side-bar" to="/addPost">
                 <ListItemButton>
                   <ListItemIcon>
                     <AddCardIcon />
@@ -275,7 +259,7 @@ const AddCours = () => {
                   <ListItemText primary="Add Post" />
                 </ListItemButton>
               </Link>
-              <Link to="/Calendar">
+              <Link className="side-bar" to="/Calendar">
                 <ListItemButton>
                   <ListItemIcon>
                     <CalendarMonthIcon />
@@ -283,12 +267,28 @@ const AddCours = () => {
                   <ListItemText primary="Calendar" />
                 </ListItemButton>
               </Link>
-
-              
+              <Link className="side-bar" to="/Performance">
+                <ListItemButton>
+                  <ListItemIcon>
+                    <ArticleIcon />
+                  </ListItemIcon>
+                  <ListItemText primary=" Performance" />
+                </ListItemButton>
+              </Link>
+              <Link className="side-bar" to="/TeachersListboard">
+                <ListItemButton>
+                  <ListItemIcon>
+                    <PersonIcon />
+                  </ListItemIcon>
+                  <ListItemText primary=" Teachersboard" />
+                </ListItemButton>
+              </Link>
             </List>
           )}
         </Drawer>
+
         <Box
+          className="order"
           component="main"
           sx={{
             backgroundColor: (theme) =>
@@ -296,93 +296,54 @@ const AddCours = () => {
                 ? theme.palette.grey[100]
                 : theme.palette.grey[900],
             flexGrow: 1,
-            height: "100vh",
+            height: "150vh",
             overflow: "auto",
           }}
         >
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
-              {/* Chart */}
 
-              {/* Recent Orders */}
-              <Grid item xs={12}>
-                <Paper sx={{ p: 2, display: "flex", flexDirection: "column" ,width:500,ml:45 }}>
-                  <ThemeProvider theme={theme}>
-                    <Container component="main" maxWidth="xs">
-                      <CssBaseline />
-                      <Box
-                        sx={{
-                          marginTop: 8,
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "center",
-                        }}
-                      >
-                        <Typography component="h1" variant="h5">
-                          Add Course
-                        </Typography>
-                        <Box
-                          component="form"
-                          onSubmit={handleSubmit}
-                          noValidate
-                          sx={{ mt: 1 }}
-                        >
-                          <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            id="materialName"
-                            label="Name Material"
-                            name="materialName"
-                            autoComplete="no"
-                            autoFocus
-                            onChange={(e) => setMaterialName(e.target.value)}
-                          />
-                          <TextField
-                            margin="normal"
-                            fullWidth
-                            name="title"
-                            label="Title"
-                            type="String"
-                            id="title"
-                            autoComplete="no"
-                            onChange={(e) => setTitle(e.target.value)}
-                          />
-                          <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            name="file"
-                            label="Content"
-                            type="file"
-                            id="file"
-                            onChange={(e) => setContent(e.target.files[0])}
-                          />
-
-                          <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            sx={{ mt: 3, mb: 2 }}
-                          >
-                            Save
-                          </Button>
-                        </Box>
-                      </Box>
-                    </Container>
-                  </ThemeProvider>
-                </Paper>
-              </Grid>
-            </Grid>
-           
-          </Container>
-        </Box>
-      </Box>
-    </ThemeProvider>
-  );
-};
-
-export default AddCours;
-/*<div>
+    <Title>Students List</Title>
+        <Table size="small">
+  <TableHead>
+    <TableRow>
+      <TableCell>Date</TableCell>
+      <TableCell>Photo</TableCell>
+      <TableCell>First Name</TableCell>
+      <TableCell>Last Name</TableCell>
+      <TableCell>Email</TableCell>
+      <TableCell>Ban</TableCell>
+      <TableCell align="right">Role</TableCell>
+    </TableRow>
+  </TableHead>
+  <TableBody>
+    { Students.map((row) => (
+      <TableRow key={row._id}>
+        <TableCell>{row.createdOn}</TableCell>
+        <TableCell><Avatar alt="Remy Sharp" src={row.image} /></TableCell>
+        <TableCell>{row.firstName}</TableCell>
+        <TableCell>{row.lastName}</TableCell>
+        <TableCell>{row.email}</TableCell>
+        <TableCell>
+        <FormControlLabel
+          control={
+            <Checkbox checked={checked} onChange={handleChange1} />
+          }
+          label="student"
+        />
+      </TableCell>
+        <TableCell align="right">{row.role}</TableCell>
+        <DeleteForeverIcon size="small" onClick={()=>dispatch(deleteUser(row._id))}>Delete</DeleteForeverIcon>
+      </TableRow>
       
-    </div>*/
+    ))}
+  </TableBody>
+</Table>
+
+      
+      </Box>
+      </Box>
+      </ThemeProvider>
+  
+    
+  );
+}
+export default TeachersList;

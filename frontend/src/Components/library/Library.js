@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 const Library = ({ el }) => {
     const user = useSelector((state) => state.userReducer.currentUser);
   return (
-    <div>
+    
       <div className="card" style={{ width: "18rem" }}>
         <video width={320} height={240} controls>
           <source src={el.video} type="video/mp4" />
@@ -19,7 +19,7 @@ const Library = ({ el }) => {
           </a>:null}
         </div>
       </div>
-    </div>
+    
   );
 };
 

@@ -5,7 +5,7 @@ const Entro = () => {
   return (
     <section className="vc_row wpb_row vc_row-fluid"  style={{marginLeft:400}}>
       <div className="maincontainer">
-        <div className="row" style={{display:'flex',justifyContent: 'center'}}>
+        <div className="row" >
           <div className="wpb_column vc_column_container vc_col-sm-3">
             <div className="vc_column-inner ">
               <div className="wpb_wrapper" />
@@ -14,7 +14,7 @@ const Entro = () => {
           <div className="wpb_column vc_column_container vc_col-sm-6">
             <div className="vc_column-inner ">
               <div className="wpb_wrapper">
-                <div className="vc_empty_space" style={{ height: 32,marginTop: 120}}>
+                <div className="vc_empty_space" style={{ height: 32,marginTop: 100}}>
                   <span className="vc_empty_space_inner" />
                 </div>
                 <div className="wpb_text_column wpb_content_element ">

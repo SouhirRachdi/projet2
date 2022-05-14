@@ -5,6 +5,9 @@ import { useParams } from "react-router-dom";
 import { commentPost, getPost } from "../../Redux/Actions/postaction";
 import "./Post.css";
 import Avatar from "@mui/material/Avatar";
+import PersonIcon from '@mui/icons-material/Person';
+
+import ArticleIcon from '@mui/icons-material/Article';
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
@@ -138,6 +141,7 @@ const CommentSection = () => {
             }}
           >
             <IconButton onClick={toggleDrawer}>
+            <p className="log">EDU<strong className="mainname" style={{color:'#F8D90F'}}>L</strong>EARN</p>
               <ChevronLeftIcon />
             </IconButton>
           </Toolbar>
@@ -282,13 +286,29 @@ const CommentSection = () => {
                   <ListItemText primary="Calendar" />
                 </ListItemButton>
               </Link>
+              <Link className="side-bar" to="/Performance">
+                <ListItemButton>
+                  <ListItemIcon>
+                    <ArticleIcon />
+                  </ListItemIcon>
+                  <ListItemText primary=" Performance" />
+                </ListItemButton>
+              </Link>
+              <Link className="side-bar" to="/TeachersListboard">
+                <ListItemButton>
+                  <ListItemIcon>
+                    <PersonIcon/>
+                  </ListItemIcon>
+                  <ListItemText primary=" Teachersboard" />
+                </ListItemButton>
+              </Link>
 
-              <Divider sx={{ my: 1 }} />
-              {secondaryListItems}
+            
             </List>
           )}
         </Drawer>
-        <Box 
+        <Box
+        className='commentss' 
           component="main"
           sx={{
             backgroundColor: (theme) =>
@@ -296,8 +316,8 @@ const CommentSection = () => {
                 ? theme.palette.grey[100]
                 : theme.palette.grey[900],
             flexGrow: 1,
-            height: '100vh',
-            overflow: 'auto',
+            
+            
           }}
         >
           
@@ -308,21 +328,15 @@ const CommentSection = () => {
               
               {/* Recent Orders */}
               <Grid item xs={12}>
-                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column',ml:35 ,border:'none' ,  boxShadow:'none'}}>
                 <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="xs">
-          <CssBaseline />
-          <Box
-            sx={{
+          <div className="card"  sx={{
               marginTop: 8,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-            }}
-          >
-          <div > 
-   
-          <div className="card">
+            }}>
             <img
               src="https://cdn.futura-sciences.com/buildsv6/images/wide1920/9/4/0/940b22eda6_50170334_code-informatique.jpg"
               className="card__image"
@@ -402,15 +416,15 @@ const CommentSection = () => {
               </div>
             </div>
           </section> 
-      </div> 
-      </Box>
+     
+      
         
         </Container>
       </ThemeProvider>
                 </Paper>
               </Grid>
             </Grid>
-            <Copyright sx={{ pt: 4 }} />
+            
           </Container>
         </Box>
       </Box>
